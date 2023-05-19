@@ -1,2 +1,2 @@
 # AZplusplus
-AZ++ programming language main source repository
+AZ & AZ++ programming language main source repository
