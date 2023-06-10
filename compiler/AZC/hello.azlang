@@ -1,0 +1,10 @@
+Show("Hello World!");
+string i = Input("Hi:");
+string j = Input("What's your name?:");
+Show("Hello!", j);
+// Irretating the user...
+for (i in range(10)){
+Show("I hope your are fine!"); // It will irritate.
+};
+Show()
+"wkefjwfh";
