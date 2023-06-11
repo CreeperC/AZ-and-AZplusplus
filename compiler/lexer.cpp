@@ -36,7 +36,6 @@ public:
 };
 
 // all functions
-
 string chartostr(char *cha)
 {
     string str = cha;
@@ -58,6 +57,35 @@ char *chaTochaStar(char cha)
     chastar[0] = cha;
     chastar[1] = '\0';
     return chastar;
+}
+string replace(string str, string oldstr, string newstr)
+{
+    vector<int> sameIn;
+    int oldlen = oldstr.length();
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str[i] == oldstr[0])
+        {
+            bool issame = true;
+            for (int j = 0; j < oldlen; j++)
+            {
+                if (!(str[i + j] == oldstr[j]))
+                {
+                    issame = false;
+                }
+                if (issame == true)
+                {
+                    sameIn.push_back(i);
+                    i = oldlen;
+                }
+            }
+        }
+    }
+    for (int i = 0; i < sameIn.size(); i++)
+    {
+        str.replace(sameIn[i], oldlen, newstr);
+    }
+    return str;
 }
 string commentsOut(string lineOfCode)
 {
@@ -132,6 +160,9 @@ vector<StrNoStr> diviStrNoStr(string code)
     }
     arr.push_back(StrNoStr(localstr, true));
     return arr;
+}
+vector<string> lexer(string code){
+    // code = code.replace('\n','');
 }
 int main()
 {
