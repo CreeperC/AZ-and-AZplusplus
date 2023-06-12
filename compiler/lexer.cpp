@@ -3,25 +3,14 @@
 #include <string>
 #include <vector>
 #include "tokens/tokens.cpp"
-
+#include "errors/errors.cpp"
 using namespace std;
 
 // all classes
-class SrcfileNotFoundErr : public exception
-{
-private:
-    char *message;
-
-public:
-    const char *what()
-    {
-        return "Source file doesn't exist";
-    }
-};
 class StrNoStr
 {
 public:
-    bool isStr;
+    bool isStr; // It should be type...
     string self;
 
     StrNoStr(string body = "", bool isSt = false)
@@ -31,7 +20,7 @@ public:
     };
     void addstring(string chunk)
     {
-        self.append(chunk);
+        self = chunk;
     }
 };
 
