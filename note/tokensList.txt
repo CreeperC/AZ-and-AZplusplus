@@ -1,0 +1,88 @@
+:::::::::::: Keywords ::::::::::::
+and
+bool
+break
+case
+char
+class
+continue
+else
+false
+False
+float
+for
+if
+int
+or
+private
+protected
+public
+return
+switch
+void
+null
+none
+true
+True
+while
+
+:::::::::::: Identifires ::::::::::::
+// User defined
+
+:::::::::::: String Literals ::::::::::::
+r"": raw strings.
+f"{}": format strings.
+b"": bytes.
+
+:::::::::::: Int Literals ::::::::::::
+/d*: int
+
+:::::::::::: Decimal Literals ::::::::::::
+/d*./d*
+
+:::::::::::: bool Literals ::::::::::::
+true: true bool.
+True: true bool.
+
+:::::::::::: Operators ::::::::::::
+____ logical ____
+or ||
+and &&
+eq ==
+lt <
+bl >
+lteq <=
+bleq >=
+nteq !=
+not !
+
+____ Arithmetic ____
++
+-
+/
+*
+%
+
+____ assigment ____
+++
+--
++=
+-=
+/=
+%=
+*=
+
+:::::::::::: Punctuators ::::::::::::
+()
+{}
+[]
+;
+
+
+
+
+
+
+
+
+
