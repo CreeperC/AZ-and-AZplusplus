@@ -7,7 +7,9 @@
 using namespace std;
 
 // all classes
+
 class StrNoStr
+// This class used to know while converting if its a string or not a string object.
 {
 public:
     bool isStr; // It should be type...
@@ -25,12 +27,15 @@ public:
 };
 
 // all functions
+
 string chartostr(char *cha)
+// to avoid complexcity related to converting char* to str
 {
     string str = cha;
     return cha;
 }
 char *strtocha(string str)
+// to avoid complexcity related to converting string to char*
 {
     char *cha = new char[str.length()];
     for (int i = 0; i <= int(str.length()); i++)
@@ -41,16 +46,43 @@ char *strtocha(string str)
     return cha;
 }
 char *chaTochaStar(char cha)
+// to avoid complexcity related to converting char to char*
 {
     char *chastar = new char[1];
     chastar[0] = cha;
     chastar[1] = '\0';
     return chastar;
 }
+int findInVec(vector<string> Vec, string finding)
+// return index where a string which we are finding is located
+{
+    for (int i = 0; i < Vec.size(); i++)
+    {
+        if (Vec.at(i) == finding)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+// vector<string> splitStr(string str, string splitTerms[])
+// {
+//     vector<string> i;
+//     vector<string> splitTerms1 = splitTerms;
+//     for (int e = 0; e < str.length(); e++)
+//     {
+//         if (findInVec(splitTerms1, ))
+//         {
+//         }
+//     }
+// }
 string replace(string str, string oldstr, string newstr)
+// used to replace a part/parts of string in a big string
 {
     vector<int> sameIn;
     int oldlen = oldstr.length();
+    int newlen = newstr.length();
+    int extra = newlen - oldlen;
     for (int i = 0; i < str.length(); i++)
     {
         if (str[i] == oldstr[0])
@@ -62,21 +94,23 @@ string replace(string str, string oldstr, string newstr)
                 {
                     issame = false;
                 }
-                if (issame == true)
-                {
-                    sameIn.push_back(i);
-                    i = oldlen;
-                }
+            }
+            if (issame == true)
+            {
+                sameIn.push_back(i);
             }
         }
     }
+    int j = 0;
     for (int i = 0; i < sameIn.size(); i++)
     {
-        str.replace(sameIn[i], oldlen, newstr);
+        str.replace(sameIn[i] + j, oldlen, newstr);
+        j = extra + j;
     }
     return str;
 }
 string commentsOut(string lineOfCode)
+// used to put the comments out of the code.
 {
     string linevar = "";
     for (int i = 0; i < lineOfCode.length(); i++)
@@ -112,6 +146,7 @@ string getSrcStr(char *filepath)
     }
 }
 vector<StrNoStr> diviStrNoStr(string code)
+// split the code into string objects & noString objects
 {
     vector<StrNoStr> arr;
     string localstr;
@@ -150,8 +185,14 @@ vector<StrNoStr> diviStrNoStr(string code)
     arr.push_back(StrNoStr(localstr, true));
     return arr;
 }
-vector<string> lexer(string code){
-    // code = code.replace('\n','');
+string breakdown(string code) // its return type has to change to vector<string>
+// used to do operations on code(noString)
+{
+    vector<string> strVec;
+    string newline = "\n";
+
+    code = replace(code, newline, "");
+    return code;
 }
 int main()
 {
@@ -159,16 +200,20 @@ int main()
     char filepath[] = ".\\AZC\\hello.azlang";
     string srcstr = getSrcStr(filepath);
     vector<StrNoStr> array = diviStrNoStr(srcstr);
-    for (int i = 0; i<array.size(); i++){
-        if (array[i].isStr == false){
-            /*
-            
-            Lexer Function!
-            
-            */
-        } else{
-            array[i] = array[i].self;
+    vector<string> chunksList;
+    for (int i = 0; i < array.size(); i++)
+    {
+        if (array[i].isStr == false)
+        {
+            array[i].self = breakdown(array[i].self);
+        }
+        else
+        {
+            chunksList.push_back(array[i].self);
         }
     }
-    // cout<<tokens().DoubleLiQuo[0];
+    for (int i = 0; i < array.size(); i++)
+    {
+        cout << array[i].self<<endl;
+    }
 }

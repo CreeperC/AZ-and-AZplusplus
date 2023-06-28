@@ -1,5 +1,6 @@
 :::::::::::: Keywords ::::::::::::
 and
+any
 bool
 break
 case
@@ -27,7 +28,65 @@ True
 while
 
 :::::::::::: Identifires ::::::::::::
-// User defined
+____ Pre-defined ____
+> functions:
+bin(int n): returns binary version of a number.
+bool(int n): returns bool of numbers, 0 is false & rest are true.
+bytes(string obj): returns a byte object.
+chr(int number): returns a character object by unicode.
+int(string/bool data): returns a integers.
+help(): executes build in help system.
+range(int num): returns a range of number in list format.
+str(any data): return a string data.
+float(int num): return a floating point num.
+
+> classes:
+class int.
+class string.
+class float.
+class byte.
+class bool.
+class array.
+class keymap.
+
+> methods:
+
+characters(bytes,strings):
+- capitilize()
+- upper()
+- lower()
+- startswith()
+- endswith()
+- replace()
+- join()
+
+numberic(float,int):
+- add()
+- subs()
+- divide()
+- multi()
+- expo()
+- tobool()
+- tostr()
+
+boolean():
+- istrue()
+- isfalse()
+- toint()
+- expression()
+
+array(list):
+- join()
+- len()
+- sort()
+- reverse()
+- append()
+
+keymap(dictionary):
+- update()
+- pop()
+- values()
+- keys()
 
 :::::::::::: String Literals ::::::::::::
 r"": raw strings.
