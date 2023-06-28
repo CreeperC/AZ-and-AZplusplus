@@ -7,8 +7,8 @@
 using namespace std;
 using namespace tokenslist;
 
-// all classes
 
+// all classes
 class StrNoStr
 // This class used to know while converting if its a string or not a string object.
 {
@@ -191,7 +191,6 @@ string breakdown(string code) // its return type has to change to vector<string>
 {
     vector<string> strVec;
     string newline = "\n";
-
     code = replace(code, newline, "");
     return code;
 }
