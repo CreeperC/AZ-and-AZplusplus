@@ -1,7 +1,10 @@
 {
+<<<<<<< HEAD
     "files.associations": {
         "*.pym": "python",
         "iostream": "cpp",
         "ostream": "cpp"
     }
+=======
+>>>>>>> buggy
 }
