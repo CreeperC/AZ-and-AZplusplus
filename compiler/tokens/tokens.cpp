@@ -1,20 +1,21 @@
 
+#include "tokensClass.cpp"
+
 char DLQ1[] = "\"\"\"";
 char DLQ2[] = {'\'', '\'', '\''};
 namespace tokenslist
 {
-        struct Extra
-        {
-            char commentTok[2] = {
-                '/',
-                '/'};
-            char SingleLiQuo[2] = {
-                '"',
-                '\''};
-            char *DoubleLiQuo[2] = {
-                DLQ1,
-                DLQ2};
-        };
+    struct Extra
+    {
+        char commentTok[2] = {
+            '/','/'};
+        char SingleLiQuo[2] = {
+            '"',
+            '\''};
+        char *DoubleLiQuo[2] = {
+            DLQ1,
+            DLQ2};
+    };
     struct Operators
     {
         const char *logical[10] = {
@@ -45,14 +46,12 @@ namespace tokenslist
             "true",
             "false",
             "False",
-            "True"
-        };
+            "True"};
         const char *nulls[4] = {
             "null",
             "void",
             "none",
-            "nan"
-        };
+            "nan"};
     };
     struct Keywords
     {
@@ -65,19 +64,18 @@ namespace tokenslist
             "float",
             "bytes",
             "while",
-            "for"
-        };
-        const char * ifElse[3] = {
+            "for"};
+        const char *ifElse[3] = {
             "if",
             "else",
-            "elif"
-        };
+            "elif"};
         const char *processKeywords[3] = {
             "continue",
             "break",
-            "return"
-        };
+            "return"};
     };
+
+};
+char *TokenListArray[][2] = {
     
-    
-}
+};

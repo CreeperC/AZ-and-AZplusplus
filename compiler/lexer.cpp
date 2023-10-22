@@ -214,6 +214,7 @@ int main()
     }
     for (int i = 0; i < array.size(); i++)
     {
-        cout << array[i].self<<endl;
+        cout << array[i].self<<" "<<array[i].isStr<<endl;
+        cout << "\n\n\n\n";
     }
 }
