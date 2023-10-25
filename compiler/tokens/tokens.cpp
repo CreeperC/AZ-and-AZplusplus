@@ -1,5 +1,63 @@
 
 #include "tokensClass.cpp"
+#include <vector>
+using namespace std;
+
+class Dict
+{
+public:
+    class DNode
+    {
+    public:
+        const char *value = value;
+        const char *key = key;
+    };
+
+    int DSize = 0;
+    vector<DNode> self;
+
+    void add(const char *key, const char *value)
+    {
+        DNode newvar;
+        newvar.key = key;
+        newvar.value = value;
+        self.push_back(newvar);
+        DSize++;
+    };
+    void remove(const char *key)
+    {
+        for (int i = 0; i < self.size(); i++)
+        {
+            if (key == self[i].key)
+            {
+                self.erase(self.begin() + 1);
+                DSize--;
+                return;
+            };
+        };
+    };
+    DNode getbyPo(int position)
+    {
+        return self[position];
+    };
+    DNode getbyKey(const char *key)
+    {
+        int i;
+        bool found = false;
+        for (i = 0; i < self.size(); i++)
+        {
+            cout<<"i: "<<i<<"\n";
+            cout<<"self[i]: ";
+            cout<<self[i].key<<"\n";
+            if (key == self[i].key)
+            {
+                found = true;
+                break;
+            };
+        };
+    return self[i];
+    };
+};
 
 char DLQ1[] = "\"\"\"";
 char DLQ2[] = {'\'', '\'', '\''};
@@ -8,7 +66,7 @@ namespace tokenslist
     struct Extra
     {
         char commentTok[2] = {
-            '/','/'};
+            '/', '/'};
         char SingleLiQuo[2] = {
             '"',
             '\''};
@@ -76,6 +134,7 @@ namespace tokenslist
     };
 
 };
-char *TokenListArray[][2] = {
-    
+
+vector<char> TokenArray = {
+
 };
