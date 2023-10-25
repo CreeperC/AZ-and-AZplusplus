@@ -46,33 +46,28 @@ public:
         bool found = false;
         for (i = 0; i < self.size(); i++)
         {
-            cout<<"i: "<<i<<"\n";
-            cout<<"self[i]: ";
-            cout<<self[i].key<<"\n";
             if (key == self[i].key)
             {
                 found = true;
                 break;
             };
         };
-    return self[i];
+        return self[i];
     };
 };
 
-char DLQ1[] = "\"\"\"";
-char DLQ2[] = {'\'', '\'', '\''};
 namespace tokenslist
 {
     struct Extra
     {
-        char commentTok[2] = {
-            '/', '/'};
-        char SingleLiQuo[2] = {
-            '"',
-            '\''};
-        char *DoubleLiQuo[2] = {
-            DLQ1,
-            DLQ2};
+        const char *commentTok[2] = {
+            "/", "/"};
+        const char *SingleLiQuo[2] = {
+            "\"",
+            "'"};
+        const char *DoubleLiQuo[2] = {
+            "'''",
+            "\"\"\""};
     };
     struct Operators
     {
@@ -135,6 +130,3 @@ namespace tokenslist
 
 };
 
-vector<char> TokenArray = {
-
-};
