@@ -110,7 +110,7 @@ string replace(string str, string oldstr, string newstr)
     }
     return str;
 }
-string commentsOut(string lineOfCode)
+string commentsOut(const string lineOfCode)
 // used to put the comments out of the code.
 {
     string linevar = "";

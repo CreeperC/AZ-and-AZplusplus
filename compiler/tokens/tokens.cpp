@@ -60,14 +60,14 @@ namespace tokenslist
 {
     struct Extra
     {
-        const char *commentTok[2] = {
-            "/", "/"};
-        const char *SingleLiQuo[2] = {
-            "\"",
-            "'"};
-        const char *DoubleLiQuo[2] = {
-            "'''",
-            "\"\"\""};
+        char commentTok[2] = {
+            '/', '/'};
+        char SingleLiQuo[2] = {
+            '"',
+            '\''};
+        char *DoubleLiQuo[2] = {
+            (char*) "'''",
+            (char*) "\"\"\""};
     };
     struct Operators
     {
