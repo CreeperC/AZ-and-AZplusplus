@@ -12,7 +12,7 @@ using namespace tokenslist;
 class StrNoStr
 // This class used to know while converting if its a string or not a string object.
 {
-public:
+
     bool isStr; // It should be type...
     string self;
 
@@ -194,8 +194,62 @@ string breakdown(string code) // its return type has to change to vector<string>
     code = replace(code, newline, "");
     return code;
 }
+class Dict
+{
+
+    class DNode
+    {
+    
+        const char *value = value;
+        const char *key = key;
+    };
+
+    int DSize = 0;
+    vector<DNode> self;
+
+    void add(const char *key, const char *value)
+    {
+        DNode newvar;
+        newvar.key = key;
+        newvar.value = value;
+        self.push_back(newvar);
+        DSize++;
+    };
+    void remove(const char *key)
+    {
+        for (int i = 0; i < self.size(); i++)
+        {
+            if (key == self[i].key)
+            {
+                self.erase(self.begin() + 1);
+                DSize--;
+                return;
+            };
+        };
+    };
+    DNode getbyPo(int position)
+    {
+        return self[position];
+    };
+    DNode getbyKey(const char *key)
+    {
+        int i;
+        bool found = false;
+        for (i = 0; i < self.size(); i++)
+        {
+            if (key == self[i].key)
+            {
+                found = true;
+                break;
+            };
+        };
+        return self[i];
+    };
+};
 int main()
 {
+    // arranging the tokens
+    
     // getting source code
     char filepath[] = ".\\AZC\\hello.azlang";
     string srcstr = getSrcStr(filepath);

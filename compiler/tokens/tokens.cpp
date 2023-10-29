@@ -3,130 +3,51 @@
 #include <vector>
 using namespace std;
 
-class Dict
-{
-public:
-    class DNode
-    {
-    public:
-        const char *value = value;
-        const char *key = key;
-    };
-
-    int DSize = 0;
-    vector<DNode> self;
-
-    void add(const char *key, const char *value)
-    {
-        DNode newvar;
-        newvar.key = key;
-        newvar.value = value;
-        self.push_back(newvar);
-        DSize++;
-    };
-    void remove(const char *key)
-    {
-        for (int i = 0; i < self.size(); i++)
-        {
-            if (key == self[i].key)
-            {
-                self.erase(self.begin() + 1);
-                DSize--;
-                return;
-            };
-        };
-    };
-    DNode getbyPo(int position)
-    {
-        return self[position];
-    };
-    DNode getbyKey(const char *key)
-    {
-        int i;
-        bool found = false;
-        for (i = 0; i < self.size(); i++)
-        {
-            if (key == self[i].key)
-            {
-                found = true;
-                break;
-            };
-        };
-        return self[i];
-    };
-};
-
-namespace tokenslist
-{
-    struct Extra
-    {
-        char commentTok[2] = {
-            '/', '/'};
-        char SingleLiQuo[2] = {
-            '"',
-            '\''};
-        char *DoubleLiQuo[2] = {
-            (char*) "'''",
-            (char*) "\"\"\""};
-    };
-    struct Operators
-    {
-        const char *logical[10] = {
-            "and",
-            "&",
-            "==",
-            "<",
-            ">",
-            "<=",
-            ">=",
-            "!=",
-            "!",
-            "or"};
-        const char *arithmetic[5] = {
-            "+",
-            "-",
-            "/",
-            "*",
-            "%"};
-        const char *assignment[1] = {
-            "="};
-        const char *punctuators[3][2] = {
-            {"(", ")"}, {"{", "}"}, {"[", "]"}};
-    };
-    struct Predefined
-    {
-        const char *boolean[4] = {
-            "true",
-            "false",
-            "False",
-            "True"};
-        const char *nulls[4] = {
-            "null",
-            "void",
-            "none",
-            "nan"};
-    };
-    struct Keywords
-    {
-        const char *definition[9] = {
-            "fun",
-            "class",
-            "int",
-            "string",
-            "bool",
-            "float",
-            "bytes",
-            "while",
-            "for"};
-        const char *ifElse[3] = {
-            "if",
-            "else",
-            "elif"};
-        const char *processKeywords[3] = {
-            "continue",
-            "break",
-            "return"};
-    };
-
-};
-
+tuple MainTokenTu = (("//", Tokens::Extra::commentTok()),
+                     ("\"", Tokens::Extra::SingleLiQuo()),
+                     ("'''", Tokens::Extra::DoubleLiQuo()),
+                     ("\"", Tokens::Extra::SingleLiQuo()),
+                     ("&", Tokens::Operators::Logical_Oprs::and_opr()),
+                     ("and", Tokens::Operators::Logical_Oprs::and_opr()),
+                     ("==", Tokens::Operators::Logical_Oprs::eq_opr()),
+                     ("<", Tokens::Operators::Logical_Oprs::belowThan()),
+                     (">", Tokens::Operators::Logical_Oprs::greaterThan()),
+                     ("<=", Tokens::Operators::Logical_Oprs::belowThanOrEq()),
+                     (">=", Tokens::Operators::Logical_Oprs::greaterThanOrEq()),
+                     ("!=", Tokens::Operators::Logical_Oprs::notEq()),
+                     ("!", Tokens::Operators::Logical_Oprs::Not()),
+                     ("or", Tokens::Operators::Logical_Oprs::Or()),
+                     ("+", Tokens::Operators::Arithmetic::addition()),
+                     ("-", Tokens::Operators::Arithmetic::substract()),
+                     ("/", Tokens::Operators::Arithmetic::divide()),
+                     ("*", Tokens::Operators::Arithmetic::multiply()),
+                     ("%", Tokens::Operators::Arithmetic::modulo()),
+                     ("=", Tokens::Operators::Assignment::assign()),
+                     ("(", Tokens::Operators::Punctuators::semi_circular_brac::StartSemiCircleBrac()),
+                     (")", Tokens::Operators::Punctuators::semi_circular_brac::EndSemiCircleBrac()),
+                     ("{", Tokens::Operators::Punctuators::curvy_brac::StartCurvyBrac()),
+                     ("}", Tokens::Operators::Punctuators::curvy_brac::EndCurvyBrac()),
+                     ("[", Tokens::Operators::Punctuators::sqr_brac::StartSqrBrac()),
+                     ("]", Tokens::Operators::Punctuators::sqr_brac::EndSqrBrac()),
+                     ("true", Tokens::datatypes::Bool::True()),
+                     ("True", Tokens::datatypes::Bool::True()),
+                     ("false", Tokens::datatypes::Bool::False()),
+                     ("False", Tokens::datatypes::Bool::False()),
+                     ("Null", Tokens::Keywords::nulls::Null()),
+                     ("Void", Tokens::Keywords::nulls::Void()),
+                     ("None", Tokens::Keywords::nulls::None()),
+                     ("Nah", Tokens::Keywords::nulls::Nah()),
+                     ("null", Tokens::Keywords::nulls::Null()),
+                     ("void", Tokens::Keywords::nulls::Void()),
+                     ("none", Tokens::Keywords::nulls::None()),
+                     ("nah", Tokens::Keywords::nulls::Nah()),
+                     ("fun", Tokens::Keywords::fun()),
+                     ("class", Tokens::Keywords::Class()),
+                     ("while", Tokens::Keywords::While()),
+                     ("for", Tokens::Keywords::For()),
+                     ("if", Tokens::Keywords::controlflow::If()),
+                     ("elif", Tokens::Keywords::controlflow::Elif()),
+                     ("else", Tokens::Keywords::controlflow::Else()),
+                     ("continue", Tokens::Keywords::ProcessKeywords::Continue()),
+                     ("break", Tokens::Keywords::ProcessKeywords::Break()),
+                     ("return", Tokens::Keywords::ProcessKeywords::Return()));

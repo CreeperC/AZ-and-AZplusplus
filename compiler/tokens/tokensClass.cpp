@@ -2,10 +2,42 @@
 #include <iostream>
 using namespace std;
 
-
 class Tokens
 {
     public:
+    class datatypes{
+        public:
+        class Int
+        {
+            // this class is for int
+        };
+        class String
+        {
+            // this class is for strings
+        };
+        class Bool
+        {
+            public:
+            // this class is for bool
+            class True
+            {
+                // this class is for true bool
+            };
+            class False
+            {
+                // this class is for false bool
+            };
+        };
+        class Float
+        {
+            // this class is for float
+        };
+        class Bytes
+        {
+            // this class is for bytes
+        };
+
+    };
     class Extra
     {
         public:
@@ -23,16 +55,21 @@ class Tokens
             class EndingSLiQuo
             {
                 // "
+
             };
         };
         class DoubleLiQuo
         {
             public:
-            class StartingDLiQuo{
+            class StartingDLiQuo
+            {
                 // """
+                
             };
-            class EndingDLiQuo{
+            class EndingDLiQuo
+            {
                 // """
+                
             };
         };
     };
@@ -44,11 +81,13 @@ class Tokens
             public:
             class and_opr
             {
-                // & and
+                // and &
+    
             };
             class eq_opr
             {
                 // ==
+
             };
             class belowThan
             {
@@ -61,22 +100,27 @@ class Tokens
             class belowThanOrEq
             {
                 // <=
+
             };
             class greaterThanOrEq
             {
                 // >=
+
             };
             class notEq
             {
                 // !=
+
             };
             class Not
             {
                 // !
+
             };
             class Or
             {
-                // or |
+                // or
+
             };
         };
         class Arithmetic
@@ -119,9 +163,11 @@ class Tokens
                 public:
                 class StartSemiCircleBrac
                 {
+                    // (
                 };
                 class EndSemiCircleBrac
                 {
+                    // )
                 };
             };
             class curvy_brac
@@ -129,9 +175,11 @@ class Tokens
                 public:
                 class StartCurvyBrac
                 {
+                    // {
                 };
                 class EndCurvyBrac
                 {
+                    // }
                 };
             };
             class sqr_brac
@@ -139,9 +187,11 @@ class Tokens
                 public:
                 class StartSqrBrac
                 {
+                    // [
                 };
                 class EndSqrBrac
                 {
+                    // ]
                 };
             };
         };
@@ -156,35 +206,6 @@ class Tokens
         class Class
         {
             // this class is for class
-        };
-        class Int
-        {
-            // this class is for int
-        };
-        class String
-        {
-            // this class is for strings
-        };
-        class Bool
-        {
-            public:
-            // this class is for bool
-            class True
-            {
-                // this class is for true bool
-            };
-            class False
-            {
-                // this class is for false bool
-            };
-        };
-        class Float
-        {
-            // this class is for float
-        };
-        class Bytes
-        {
-            // this class is for bytes
         };
         class While
         {
@@ -250,3 +271,4 @@ class Tokens
         };
     };
 };
+
